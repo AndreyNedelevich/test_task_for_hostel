@@ -1,0 +1,682 @@
+{
+  "tasks": [
+    {
+      "id": "233",
+      "order": 4,
+      "userId": "6",
+      "managerId": "2",
+      "title": "TASK",
+      "duration": 43,
+      "text": "Housekeeping",
+      "completed": "false",
+      "apartment": "3a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "id": "3343553333",
+      "order": 3,
+      "userId": "7",
+      "managerId": "2",
+      "duration": 43,
+      "title": "TASK",
+      "text": "Housekeeping",
+      "completed": "true",
+      "apartment": "3a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "id": "4474754",
+      "order": 6,
+      "userId": "8",
+      "managerId": "2",
+      "title": "TASK",
+      "duration": 43,
+      "text": "Housekeeping",
+      "completed": "true",
+      "apartment": "3a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "id": "73456789876",
+      "userId": "9",
+      "managerId": "2",
+      "order": 7,
+      "title": "TASK",
+      "duration": 43,
+      "text": "Housekeeping",
+      "completed": "true",
+      "apartment": "3a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "id": "85455467577",
+      "userId": "11",
+      "managerId": "1",
+      "order": 8,
+      "title": "TASK",
+      "duration": 43,
+      "text": "Housekeeping",
+      "completed": "true",
+      "apartment": "3a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "id": "9464665",
+      "userId": 12,
+      "managerId": "1",
+      "order": 10,
+      "title": "Cleaning",
+      "duration": 43,
+      "text": "Housekeeping",
+      "completed": "true",
+      "apartment": "3a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "id": "1544546460",
+      "userId": 13,
+      "managerId": "1",
+      "order": 12,
+      "title": "Cleaning",
+      "text": "Housekeeping",
+      "duration": 43,
+      "completed": "false",
+      "apartment": "3a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "id": "154545657575",
+      "userId": "10",
+      "managerId": "1",
+      "order": 5,
+      "title": "Cleaning",
+      "duration": 43,
+      "text": "Housekeeping",
+      "completed": "true",
+      "apartment": "3a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "id": "1635535466477",
+      "userId": "12",
+      "managerId": "1",
+      "order": 7,
+      "title": "Cleaning",
+      "duration": 43,
+      "text": "Housekeeping",
+      "completed": "true",
+      "apartment": "5a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "userId": "7",
+      "managerId": "1",
+      "order": 8,
+      "title": "Cleaning",
+      "duration": 43,
+      "text": "Housekeeping",
+      "completed": "true",
+      "id": "1735466463",
+      "apartment": "3a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "userId": "9",
+      "managerId": "3",
+      "order": 9,
+      "title": "Cleaning",
+      "text": "Housekeeping",
+      "duration": 43,
+      "completed": "true",
+      "id": "45345355333",
+      "apartment": "2a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "userId": 13,
+      "managerId": "3",
+      "order": 6,
+      "title": "Cleaning",
+      "duration": 43,
+      "text": "Housekeeping",
+      "id": "16970653345411604",
+      "completed": "true",
+      "apartment": "523f",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "userId": "12",
+      "managerId": "3",
+      "order": 14,
+      "title": "Cleaning",
+      "duration": 43,
+      "text": "Housekeeping",
+      "id": "1697071225422016",
+      "completed": "true",
+      "apartment": "6a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "userId": 13,
+      "managerId": "3",
+      "order": 13,
+      "title": "Window cleaning",
+      "duration": 43,
+      "text": "Housekeeping",
+      "id": "169707745355363",
+      "completed": "true",
+      "apartment": "346c",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "userId": 12,
+      "managerId": "3",
+      "order": 11,
+      "title": "Window cleaning",
+      "duration": 43,
+      "text": "олии",
+      "id": "1697078422495",
+      "completed": "false",
+      "apartment": "73i",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "userId": "10",
+      "managerId": "3",
+      "order": 10,
+      "duration": 43,
+      "title": "Window cleaning",
+      "text": "Housekeeping",
+      "id": "1697087215384",
+      "completed": "true",
+      "apartment": "7a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "userId": 12,
+      "managerId": "3",
+      "order": 1,
+      "title": "Window cleaning",
+      "duration": 43,
+      "text": "Housekeeping",
+      "id": "1697087718287",
+      "completed": "true",
+      "apartment": "54i",
+      "deadline": "2024-02-01 22:30:00"
+    },
+    {
+      "title": "Window cleaning",
+      "managerId": "2",
+      "order": 4,
+      "duration": 43,
+      "text": "Housekeeping",
+      "id": "1697087729864",
+      "completed": "false",
+      "userId": "10",
+      "apartment": "6a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "title": "Washing. The floor.",
+      "order": 1,
+      "text": "Housekeeping",
+      "id": "1697088230153",
+      "duration": 43,
+      "managerId": "2",
+      "completed": "true",
+      "userId": 12,
+      "apartment": "54i",
+      "deadline": "2024-02-01T01:15:00.000Z"
+    },
+    {
+      "title": "Washing. The floor.",
+      "order": 4,
+      "text": "Housekeeping",
+      "id": "1697088920504",
+      "duration": 43,
+      "managerId": "2",
+      "completed": "true",
+      "userId": "13",
+      "apartment": "2a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "title": "Washing. The floor.",
+      "order": 3,
+      "text": "Description",
+      "id": "1697106857622",
+      "duration": 43,
+      "managerId": "2",
+      "completed": "false",
+      "userId": 13,
+      "apartment": "9a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "title": "Washing. The floor.",
+      "order": 1,
+      "text": "Housekeeping",
+      "id": "1697106914167",
+      "duration": 43,
+      "managerId": "2",
+      "completed": "true",
+      "userId": "8",
+      "apartment": "4a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "title": "Washing. The floor.",
+      "order": 1,
+      "text": "Housekeeping",
+      "id": "1706649471119",
+      "duration": 43,
+      "managerId": "2",
+      "completed": "true",
+      "userId": "6",
+      "apartment": "7a",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "title": "Washing. The floor.",
+      "text": "Housekeeping",
+      "duration": 33,
+      "managerId": "2",
+      "userId": 6,
+      "id": "1706713494083",
+      "completed": "false",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "title": "Washing. The floor.",
+      "text": "Housekeeping",
+      "duration": 40,
+      "userId": 12,
+      "managerId": "3",
+      "id": "1706717291857",
+      "completed": "false",
+      "order": 14,
+      "apartment": "523f",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "order": 2,
+      "title": "Washing. The floor.",
+      "text": "Description",
+      "apartment": "346c",
+      "duration": 35,
+      "userId": 12,
+      "managerId": "3",
+      "id": "1706721355325",
+      "completed": "false",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "order": 3,
+      "title": "Washing. The floor.",
+      "text": "Housekeeping",
+      "apartment": "55i",
+      "duration": 43,
+      "userId": 12,
+      "managerId": "3",
+      "id": "1706721493428",
+      "completed": "true",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "order": 10,
+      "title": "Washing. The floor.",
+      "text": "Housekeeping",
+      "apartment": "55i",
+      "duration": 8,
+      "userId": 14,
+      "managerId": "3",
+      "id": "1706732680990",
+      "completed": "false",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "order": 6,
+      "title": "Washing. The floor.",
+      "text": "Housekeeping",
+      "apartment": "73i",
+      "duration": 5,
+      "userId": 13,
+      "managerId": "3",
+      "id": "1706734069491",
+      "completed": "false",
+      "deadline": "2024-02-01 03:15:00"
+    },
+    {
+      "order": 2,
+      "title": "Full Housekeeping",
+      "text": "Description",
+      "duration": 45,
+      "apartment": "5",
+      "userId": 12,
+      "deadline": "2024-02-01 00:00:00",
+      "managerId": "3",
+      "id": "1706742149529",
+      "completed": "false"
+    },
+    {
+      "order": 4,
+      "title": "Full Housekeeping",
+      "text": "Housekeeping",
+      "duration": 546,
+      "apartment": "34g",
+      "userId": 12,
+      "deadline": "2024-02-01 22:35:00",
+      "managerId": "3",
+      "id": "1706742933419",
+      "completed": "false"
+    },
+    {
+      "order": 1,
+      "title": "Full Housekeeping",
+      "text": "Housekeeping",
+      "duration": 43,
+      "apartment": "98i",
+      "userId": 13,
+      "deadline": "2024-02-01 04:15:00",
+      "managerId": "3",
+      "id": "1706745170721",
+      "completed": "true"
+    },
+    {
+      "order": 1,
+      "title": "Full Housekeeping",
+      "text": "Housekeeping",
+      "duration": 45,
+      "apartment": "54i",
+      "userId": 13,
+      "deadline": "2024-02-01 04:20:00",
+      "managerId": "3",
+      "id": "1706745691253",
+      "completed": "true"
+    },
+    {
+      "order": 1,
+      "title": "Full Housekeeping",
+      "text": "Housekeeping",
+      "duration": 43,
+      "apartment": "63c",
+      "userId": 14,
+      "deadline": "2024-02-01 06:20:00",
+      "managerId": "3",
+      "id": "1706745744856",
+      "completed": "true"
+    },
+    {
+      "order": 1,
+      "title": "Full Housekeeping",
+      "text": "Description",
+      "duration": 4,
+      "apartment": "346c",
+      "userId": 13,
+      "deadline": "2024-01-31T22:15:00.000Z",
+      "managerId": "3",
+      "id": "1706775254798",
+      "completed": "true"
+    },
+    {
+      "order": 1,
+      "title": "Full Housekeeping",
+      "text": "Housekeeping",
+      "duration": 43,
+      "apartment": "63c",
+      "userId": 13,
+      "deadline": "2024-02-01 00:15:00",
+      "managerId": "3",
+      "id": "1706775297599",
+      "completed": "false"
+    },
+    {
+      "order": 1,
+      "title": "Full Housekeeping",
+      "text": "Housekeeping",
+      "duration": 3434,
+      "apartment": "63c",
+      "userId": 12,
+      "deadline": "2024-02-01 03:15:00",
+      "managerId": "3",
+      "id": "1706775359916",
+      "completed": "false"
+    },
+    {
+      "order": 1,
+      "title": "Full Housekeeping",
+      "text": "Decription",
+      "duration": 43,
+      "apartment": "523f",
+      "userId": 13,
+      "deadline": "2024-02-01 00:15:00",
+      "managerId": "3",
+      "id": "1706775394933",
+      "completed": "false"
+    },
+    {
+      "order": 5,
+      "title": "Full Housekeeping",
+      "text": "Housekeeping",
+      "duration": 43,
+      "apartment": "63c",
+      "userId": 14,
+      "deadline": "2024-02-01 00:10:00",
+      "managerId": "3",
+      "id": "1706776317817",
+      "completed": "false"
+    },
+    {
+      "order": 5,
+      "title": "Task",
+      "text": "Description",
+      "duration": 43,
+      "apartment": "523f",
+      "userId": 14,
+      "deadline": "2024-02-01 04:00:00",
+      "managerId": "3",
+      "id": "1706776359616",
+      "completed": "true"
+    },
+    {
+      "order": 5,
+      "title": "Full Housekeeping",
+      "text": "Description",
+      "duration": 45,
+      "apartment": "54i",
+      "userId": 14,
+      "deadline": "2024-02-01 03:00:00",
+      "managerId": "3",
+      "id": "1706776553235",
+      "completed": "false"
+    },
+    {
+      "order": 34,
+      "title": "Task",
+      "text": "Description",
+      "duration": 45,
+      "apartment": "523f",
+      "userId": 14,
+      "deadline": "2024-02-01 00:10:00",
+      "managerId": "3",
+      "id": "1706776835617",
+      "completed": "false"
+    },
+    {
+      "order": 4,
+      "title": "Full Housekeeping",
+      "text": "Description",
+      "duration": 50,
+      "apartment": "54i",
+      "userId": 12,
+      "deadline": "2024-02-01 03:00:00",
+      "managerId": "3",
+      "id": "1706776928283",
+      "completed": "false"
+    },
+    {
+      "order": 1,
+      "title": "Full Housekeeping",
+      "text": "Housekeeping",
+      "duration": 45,
+      "apartment": "144a",
+      "userId": 5,
+      "deadline": "2024-02-01 18:00:00",
+      "managerId": "1",
+      "id": "1706778002860",
+      "completed": "false"
+    },
+    {
+      "order": 6,
+      "title": "Task",
+      "text": "Description",
+      "duration": 30,
+      "apartment": "73i",
+      "userId": 12,
+      "deadline": "2024-02-01 08:00:00",
+      "managerId": "3",
+      "id": "1706781105853",
+      "completed": "false"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "manager3",
+      "password": "123",
+      "role": "manager",
+      "workers": [
+        {
+          "id": "5",
+          "username": "worker 1",
+          "role": "worker",
+          "password": "123"
+        },
+        {
+          "id": "6",
+          "username": "worker 2",
+          "role": "worker",
+          "password": "123"
+        },
+        {
+          "id": "7",
+          "username": "worker 3",
+          "role": "worker",
+          "password": "123"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "username": "manager2",
+      "password": "123",
+      "role": "manager",
+      "workers": [
+        {
+          "id": "8",
+          "username": "worker 4",
+          "role": "worker",
+          "password": "123"
+        },
+        {
+          "id": "9",
+          "username": "worker 5",
+          "role": "worker",
+          "password": "123"
+        },
+        {
+          "id": "10",
+          "username": "worker 6",
+          "role": "worker",
+          "password": "123"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "username": "manager1",
+      "password": "123",
+      "role": "manager",
+      "workers": [
+        {
+          "id": "12",
+          "username": "worker 8",
+          "role": "worker",
+          "password": "123"
+        },
+        {
+          "id": "13",
+          "username": "worker 9",
+          "role": "worker",
+          "password": "123"
+        },
+        {
+          "id": "14",
+          "username": "worker 10",
+          "role": "worker",
+          "password": "123"
+        }
+      ]
+    }
+  ],
+  "profile": [
+    {
+      "id": "1",
+      "first": "Maksim",
+      "lastname": "Ostapenko",
+      "age": 37,
+      "country": "Germany",
+      "city": "Kiev",
+      "username": "admin213"
+    },
+    {
+      "id": "2",
+      "first": "Andrey",
+      "lastname": "Nedelevich",
+      "age": 45,
+      "country": "Ukraine",
+      "city": "Kharkiv",
+      "username": "user"
+    },
+    {
+      "id": "3",
+      "first": "Igor",
+      "lastname": "asf",
+      "age": 46,
+      "country": "Germany",
+      "city": "Kharkiv",
+      "username": "user"
+    },
+    {
+      "id": "4",
+      "first": "test",
+      "lastname": "user",
+      "age": 35,
+      "country": "Ukraine",
+      "city": "Kherson",
+      "username": "testuser"
+    }
+  ],
+  "apartment": [
+    {
+      "id": "1",
+      "apartment": "4a",
+      "managerId": "2"
+    },
+    {
+      "id": "2",
+      "apartment": "7b",
+      "managerId": "1"
+    },
+    {
+      "id": "3",
+      "apartment": "8i",
+      "managerId": "3"
+    },
+    {
+      "id": "4",
+      "apartment": "9c",
+      "managerId": 4
+    }
+  ]
+}
