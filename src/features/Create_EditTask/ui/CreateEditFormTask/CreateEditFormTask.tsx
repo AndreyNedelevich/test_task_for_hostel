@@ -1,7 +1,11 @@
-import React, {memo, useEffect, useState} from 'react';
+import React, {memo, useEffect} from 'react';
 import {SubmitHandler, useForm,  Controller } from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {useSelector} from "react-redux";
+import {TimePicker} from "@mui/x-date-pickers";
+import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
+import dayjs, { Dayjs } from 'dayjs';
+import {useNavigate} from "react-router-dom";
 import {classNames} from '@/shared/lib/classNames/classNames';
 import {Text} from '@/shared/ui/component/Text';
 import {useAppDispatch} from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -13,11 +17,8 @@ import {EditTaskById, Task} from "@/entities/Task";
 import {getUserAuthData} from "@/entities/User";
 import {USER_LOCALSTORAGE_KEY} from "@/shared/const/localstorage";
 import {createEditTaskValidators} from "@/shared/validators";
-import {TimePicker} from "@mui/x-date-pickers";
-import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
-import dayjs, { Dayjs } from 'dayjs';
-import {useNavigate} from "react-router-dom";
-
+import { getUserIdTasks } from '@/entities/Task/model/selectors/taskByUser';
+import { TaskStatus } from '@/entities/Task/model/types/Task';
 
 export interface LoginFormProps {
     className?: string;
@@ -186,7 +187,9 @@ const apartment = [
 
 const CreateEditFormTask = memo(({className, onSuccess,taskForUpdate,setTaskForUpdate}: LoginFormProps) => {
     const dispatch = useAppDispatch();
-    const currentUser = useSelector(getUserAuthData)
+    const currentUser = useSelector(getUserAuthData);
+    const userIdTasks=useSelector(getUserIdTasks);
+
     const navigate = useNavigate();
     const appartmentForUser=apartment.filter(item=>item.managerId===currentUser?.id)
 
@@ -208,7 +211,6 @@ const CreateEditFormTask = memo(({className, onSuccess,taskForUpdate,setTaskForU
     useEffect(() => {
         if (taskForUpdate) {
             Object.entries(taskForUpdate).forEach(([key, value]) => {
-                console.log(key, value);
                 if (key === 'deadline') {
                     const dateObject = formatDateForDayjs(value);
                     // @ts-ignore
@@ -221,30 +223,32 @@ const CreateEditFormTask = memo(({className, onSuccess,taskForUpdate,setTaskForU
 
     }, [taskForUpdate, setValue])
 
-    console.log(errors,"errors")
 
     const save: SubmitHandler<Task> = async (task) => {
-        console.log(task)
         const newTask = {
             ...task,
             managerId: currentUser?.id||localStorage.getItem(USER_LOCALSTORAGE_KEY) as string,
             id: Date.now().toString(),
             completed:  "false",
+            status: TaskStatus.ACTIVE
         };
          const result = await dispatch(createNewTask(newTask));
         if (result.meta.requestStatus === 'fulfilled') {
             navigate(`/tasks/${task.userId}`);
             onSuccess();
         }
-        reset()
+        reset();
     };
 
 
     const update: SubmitHandler<Task> = async (task:Task) => {
       if(taskForUpdate){
-          const response = await dispatch(EditTaskById({...task,completed: task?.completed.toString(),id:taskForUpdate.id}))
+          const updateTask = {
+              ...task,
+              completed: task?.completed.toString()
+          };
+          const response = await dispatch(EditTaskById({task: updateTask}))
           if (response) {
-              navigate(`/tasks/${task.userId}`);
               onSuccess();
           }
           reset()
@@ -253,7 +257,6 @@ const CreateEditFormTask = memo(({className, onSuccess,taskForUpdate,setTaskForU
     };
 
 
-    console.log(getValues(),"FORM")
 
     const handleInput = (e: any) => {
         const inputValue = e.target.value;

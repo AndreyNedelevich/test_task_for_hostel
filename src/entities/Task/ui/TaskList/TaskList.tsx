@@ -1,16 +1,13 @@
-import {memo} from 'react';
-import {classNames} from '@/shared/lib/classNames/classNames';
-import {Text} from '@/shared/ui/component/Text'
+import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/component/Text';
 import cls from './TaskList.module.scss';
-import {HStack} from '@/shared/ui/component/Stack';
-import {
- TaskListItem
-} from "@/entities/Task/ui/TaskListItem/TaskListItem/TaskListItem";
-import {Task} from "../../model/types/Task";
-import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {deleteTaskById} from "@/entities/Task";
-import {PageLoader} from "@/widgets/PageLoader";
-
+import { HStack } from '@/shared/ui/component/Stack';
+import { TaskListItem } from '@/entities/Task/ui/TaskListItem/TaskListItem/TaskListItem';
+import { Task, TaskStatus } from '../../model/types/Task';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { EditTaskById } from '@/entities/Task';
+import { PageLoader } from '@/widgets/PageLoader';
 
 
 interface TaskListProps {
@@ -29,12 +26,15 @@ export const TaskList = memo((props: TaskListProps) => {
         isLoading,
         setTaskForUpdate
     } = props;
+
     const dispatch = useAppDispatch();
-    const deleteTask=(id:string)=>{
-        // dispatch(deleteTaskById("233"))
+
+
+
+    const  deleteTask= async (task:Task)=> {
+        const updateTask: Task = {...task, status: TaskStatus.ARCHIVE}
+        await dispatch(EditTaskById({task:updateTask}))
     }
-
-
 
 
     if (!isLoading && !tasks?.length) {
@@ -50,7 +50,6 @@ export const TaskList = memo((props: TaskListProps) => {
     }
 
     return (
-
         <HStack
             wrap="wrap"
             gap="16"

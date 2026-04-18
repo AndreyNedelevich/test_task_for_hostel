@@ -1,17 +1,20 @@
-import React, {memo, useCallback, useEffect, useState} from 'react';
+import React, {memo, useCallback, useState} from 'react';
 import {useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import {classNames} from '@/shared/lib/classNames/classNames';
 import {VStack} from '@/shared/ui/component/Stack';
 import cls from './Sidebar.module.scss';
 import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {Button} from "@/shared/ui/component/Button";
 import {Flex} from "@/shared/ui/component/Stack/Flex/Flex";
-import {getUserAuthData, getUserWorkersData} from "@/entities/User";
+import {getUserAuthData} from "@/entities/User";
 import {Text} from "@/shared/ui/component/Text";
-import {useNavigate, useParams} from "react-router-dom";
 import {AvatarDropdown} from "@/features/avatarDropdown";
 import {getRouteTaskByUser} from "@/shared/const/router";
 import {LoginModal} from "@/features/AuthByUsername";
+import { getUserIdTasks } from '@/entities/Task/model/selectors/taskByUser';
+import { taskActions } from '@/entities/Task/model/slice/TestSlice';
+
 
 
 
@@ -21,7 +24,8 @@ interface SidebarProps {
 
 export const SidebarRight = memo(({className}: SidebarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
-    const authData = useSelector(getUserAuthData);
+
+
 
 
     const onCloseModal = useCallback(() => {
@@ -32,28 +36,23 @@ export const SidebarRight = memo(({className}: SidebarProps) => {
         setIsAuthModal(true);
     }, []);
 
+    const dispatch = useAppDispatch();
 
     const navigate = useNavigate();
     const currentUser=useSelector(getUserAuthData)
-    const dispatch = useAppDispatch();
+    const userIdTasks=useSelector(getUserIdTasks)
 
-    const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
 
-    useEffect(() => {
-        const userIdFromUrl = location.pathname.split('/').pop();
-        if(userIdFromUrl){
-            setSelectedUserId(userIdFromUrl);
-        }
-    }, [location.pathname]);
 
-    const handleButtonClick = (userId: string) => {
+    const handleButtonClickOneUser = (userId: string) => {
         navigate(`tasks/${userId}`);
-        setSelectedUserId(userId);
+        dispatch(taskActions.setUserIdTasksSort(userId));
     };
 
-
-
-
+    const handleButtonClickAllUsers = () => {
+        navigate(getRouteTaskByUser())
+        dispatch(taskActions.setUserIdTasksSort(null));
+    };
 
     return (
         <>
@@ -73,10 +72,10 @@ export const SidebarRight = memo(({className}: SidebarProps) => {
                             <Text title="All list of tasks"/>
                             <Button
                                 fullWidth
-                                color={'success'}
-                                variant={'filled'}
+                                color="success"
+                                variant="filled"
                                 className={cls.links}
-                                onClick={() => navigate(getRouteTaskByUser())}
+                                onClick={() => handleButtonClickAllUsers()}
                             >
                                 Tasks
                             </Button>
@@ -86,9 +85,9 @@ export const SidebarRight = memo(({className}: SidebarProps) => {
                             currentUser?.workers  && currentUser.workers.length>0 && currentUser.workers.map((item,index)=>
                                 <Button
                                     fullWidth
-                                    color={selectedUserId === item.id ? 'error' : 'success'}
-                                    variant={selectedUserId === item.id ? 'outline' : 'filled'}
-                                    onClick={() => handleButtonClick(item.id)}
+                                    color={userIdTasks === item.id ? 'error' : 'success'}
+                                    variant={userIdTasks === item.id ? 'outline' : 'filled'}
+                                    onClick={() => handleButtonClickOneUser(item.id)}
                                 >
                                     {item.username}
                                 </Button>

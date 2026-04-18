@@ -1,4 +1,5 @@
 import {memo, useCallback, useMemo} from 'react';
+import { useParams} from "react-router-dom";
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './TaskListItem.module.scss';
 import { Text } from '@/shared/ui/component/Text';
@@ -11,16 +12,14 @@ import {ListBoxItem} from "@/shared/ui/component/Popups/components/ListBox/ListB
 import {EditTaskById} from "@/entities/Task";
 import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {modalActions} from "@/features/showModal/model/slice/modalSlice";
-import {Dayjs} from "dayjs";
-import {useNavigate, useParams} from "react-router-dom";
-import {Input} from "@/shared/ui/component/Input";
+
 
 
 
 interface TaskListItemProps {
     className?: string;
     task: Task;
-    deleteTask:(id:string)=>void;
+    deleteTask:(task:Task)=> void;
     setTaskForUpdate:(task:Task|null)=>void
 }
 enum taskStatus {
@@ -31,7 +30,9 @@ enum taskStatus {
 
 export const TaskListItem = memo((props: TaskListItemProps) => {
     const { className,task,deleteTask,setTaskForUpdate } = props;
+
     const dispatch = useAppDispatch();
+
     const {id}= useParams()
     function formatDateTime(inputDateString: any) {
         const date = new Date(inputDateString);
@@ -62,10 +63,11 @@ export const TaskListItem = memo((props: TaskListItemProps) => {
     const onChangeStatus = useCallback(
         async (status:taskStatus) => {
             if(task.completed!==status){
-               await dispatch(EditTaskById({...task,completed:status,id:task.id}))
+               const updateTask: Task = {...task, completed: status.toString()}
+               await dispatch(EditTaskById({task:updateTask}))
             }
         },
-        [task.id,task.completed,dispatch],
+        [dispatch, task],
     );
 
   const editTask= useCallback(
@@ -73,7 +75,7 @@ export const TaskListItem = memo((props: TaskListItemProps) => {
           setTaskForUpdate(task)
           dispatch(modalActions.onShowModal())
       },
-      [task,setTaskForUpdate,dispatch]
+      [setTaskForUpdate, dispatch]
   )
 
     return (
@@ -93,39 +95,35 @@ export const TaskListItem = memo((props: TaskListItemProps) => {
                 </HStack>
                 <HStack max justify="between" gap="8">
                  <HStack justify="between" gap="8">
-                    <Text title={"Apartment -"} size={"m"} bold />
+                    <Text title="Apartment -" size="m" bold />
                     <Text title={task.apartment} />
                  </HStack>
                 <HStack  justify="between" gap="8">
-                    <Text title={"Duration -"} size={"m"} bold />
+                    <Text title="Duration -" size="m" bold />
                     <Text text={`${task?.duration || ""} min`} />
                 </HStack>
                     <HStack  justify="between" gap="8">
-                        <Text title={"Deadline -"} size={"m"} bold />
+                        <Text title="Deadline -" size="m" bold />
                         <Text text={`${formatDateTime(task?.deadline) || ""}`} />
                     </HStack>
                 </HStack>
-                <Text title={task.text} size={"s"} />
+                <Text title={task.text} size="s" />
                 <HStack max justify="between">
                     <HStack gap="8">
                         <Text text="STATUS"/>
-                        {id ?  <ListBox
+                        <ListBox
                             items={sortStatusOptions}
                             // @ts-ignore
                             value={task?.completed}
                             onChange={onChangeStatus}
-                        /> :<Input
-                            value={task?.completed ? 'completed' : 'not completed'}
-                            disabled={true}
-                        />}
-
+                        />
                     </HStack>
                     <HStack gap="8">
                         <Button onClick={()=>editTask(task)}  variant="outline">
                             Edit
                         </Button>
-                        <Button onClick={()=>deleteTask(task.id)} variant="outline">
-                            Delete
+                        <Button onClick={()=>deleteTask(task)} variant="outline">
+                            Archive
                         </Button>
                     </HStack>
                 </HStack>

@@ -20,6 +20,7 @@ export const createNewTask = createAsyncThunk<
                 },
             }
         );
+
         if (!response.data) {
             throw new Error('Failed to create new task');
         }

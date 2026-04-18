@@ -1,8 +1,8 @@
 import { memo, ReactElement } from 'react';
+import {useSelector} from "react-redux";
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './MainLayout.module.scss';
-import {useSelector} from "react-redux";
-import {getUserAuthData, getUserInited} from "@/entities/User";
+import {getUserAuthData} from "@/entities/User";
 
 interface MainLayoutProps {
     className?: string;

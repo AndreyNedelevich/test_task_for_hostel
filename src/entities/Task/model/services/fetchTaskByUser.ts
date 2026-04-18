@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import {Task} from "../types/Task";
+import { Task, TaskStatus } from '../types/Task';
 import {getTaskSearch, getTaskSort} from "@/entities/Task/model/selectors/taskByUser";
 import {taskSortField} from "@/features/TaskSortSelector/ui/TaskSortSelector/TaskSortSelector";
 import {getUserAuthData} from "@/entities/User";
 
 export const fetchTaskByUserId = createAsyncThunk<
     Task[],
-    string | undefined,
+    string | null,
     ThunkConfig<string>
 >('taskSlice/fetchArticleByUserId', async (id, thunkApi) => {
     const { extra, rejectWithValue,getState } = thunkApi;
@@ -23,8 +23,9 @@ export const fetchTaskByUserId = createAsyncThunk<
     try {
         const response = await extra.api.get<Task[]>(
             `/tasks`,{params:{
-                    userId: id ? id : undefined,
-                    managerId: id ? undefined : currentUser?.id,
+                    userId: id || undefined,
+                    status: TaskStatus.ACTIVE,
+                    managerId: id ? currentUser?.id : undefined ,
                     completed: sort === taskSortField.ALL ? undefined : sort,
                     q:search
                 }}

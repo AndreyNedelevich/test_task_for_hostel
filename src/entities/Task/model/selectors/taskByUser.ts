@@ -10,5 +10,9 @@ export const gettaskByUserError = (state: StateSchema) =>
 
 export const getTaskSort = (state: StateSchema) =>
     state.task?.sort ?? taskSortField.ALL;
+
 export const getTaskSearch = (state: StateSchema) =>
     state.task?.search ?? '';
+
+export const getUserIdTasks = (state: StateSchema) =>
+    state.task?.userIdTasksSort ?? null;

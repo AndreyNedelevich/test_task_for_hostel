@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
+import {useParams} from "react-router-dom";
 import {useAppDispatch} from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text } from '@/shared/ui/component/Text';
 import cls from './TaskPage.module.scss';
@@ -14,7 +15,6 @@ import {
 import {TaskModal} from "@/features/Create_EditTask";
 import {getShowModal} from "@/features/showModal/model/selectors/getShowModal";
 import {modalActions} from "@/features/showModal/model/slice/modalSlice";
-import {useParams} from "react-router-dom";
 
 
 
@@ -40,7 +40,7 @@ const TaskPage = (props: TaskPageProps) => {
             dispatch(fetchTaskByUserId(id));
 
         } else {
-            dispatch(fetchTaskByUserId());
+            dispatch(fetchTaskByUserId(null));
         }
     }, [dispatch,sort,search,id]);
 

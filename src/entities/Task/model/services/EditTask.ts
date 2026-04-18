@@ -2,20 +2,21 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import {Task} from "../types/Task";
 import {fetchTaskByUserId} from "@/entities/Task/model/services/fetchTaskByUser";
+import { getUserIdTasks } from '../selectors/taskByUser';
 
-interface EditTask {
-    id: string,
-    task: Task
+interface EditTaskPayload {
+    task: Task;
 }
 
 
 export const EditTaskById = createAsyncThunk<
     Task,
-    Task,
+    EditTaskPayload,
     ThunkConfig<string>
->('taskSlice/EditTaskById', async (task, thunkApi) => {
+>('taskSlice/EditTaskById', async (payload, thunkApi) => {
     const { extra, rejectWithValue,dispatch,getState } = thunkApi;
-
+    const { task } = payload;
+    const userIdFromUrl = getUserIdTasks(getState());
 
     if (!task.id) {
         throw new Error('');
@@ -34,7 +35,7 @@ export const EditTaskById = createAsyncThunk<
             throw new Error('Failed to create new task');
         }
         if(response.data){
-            dispatch(fetchTaskByUserId(task.userId))
+            dispatch(fetchTaskByUserId(userIdFromUrl))
         }
 
         return response.data

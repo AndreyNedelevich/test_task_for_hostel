@@ -11,6 +11,7 @@ const initialState: TaskSchema= {
     data: [],
     sort: taskSortField.ALL,
     search: '',
+    userIdTasksSort: null
 };
 
 export const taskSlice = createSlice({
@@ -23,7 +24,10 @@ export const taskSlice = createSlice({
         setSearch: (state, action: PayloadAction<string>) => {
             state.search = action.payload;
         },
-    },
+        setUserIdTasksSort: (state, action: PayloadAction<string | null>) => {
+            state.userIdTasksSort = action.payload;
+        },
+    }, 
     extraReducers: (builder) => {
         builder
             .addCase(fetchTaskByUserId.pending, (state) => {

@@ -7,4 +7,5 @@ export interface TaskSchema {
     data?: Task[];
     sort: taskSortField,
     search: string,
+    userIdTasksSort: string | null
 }

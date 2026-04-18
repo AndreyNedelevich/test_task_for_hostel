@@ -35,14 +35,14 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     const validateErrorTranslates = {
         [ValidateProfileError.SERVER_ERROR]: (
-            'Серверная ошибка при сохранении'
+            'Server error while saving'
         ),
-        [ValidateProfileError.INCORRECT_COUNTRY]: ('Некорректный регион'),
-        [ValidateProfileError.NO_DATA]: ('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: 'Invalid country',
+        [ValidateProfileError.NO_DATA]: 'No data provided',
         [ValidateProfileError.INCORRECT_USER_DATA]: (
-            'Имя и фамилия обязательны'
+            'First name and last name are required'
         ),
-        [ValidateProfileError.INCORRECT_AGE]: ('Некорректный возраст'),
+        [ValidateProfileError.INCORRECT_AGE]: 'Invalid age',
     };
 
     useInitialEffect(() => {

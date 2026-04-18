@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useEffect, useState} from 'react';
+import React, {memo, useCallback} from 'react';
 import {useSelector} from "react-redux";
 import {classNames} from '@/shared/lib/classNames/classNames';
 import {VStack} from '@/shared/ui/component/Stack';
@@ -9,11 +9,11 @@ import {taskSortField} from "@/features/TaskSortSelector/ui/TaskSortSelector/Tas
 import {Button} from "@/shared/ui/component/Button";
 import {Flex} from "@/shared/ui/component/Stack/Flex/Flex";
 import {modalActions} from "@/features/showModal/model/slice/modalSlice";
-import {getTaskSearch, getTaskSort} from "@/entities/Task/model/selectors/taskByUser";
+import { getTaskSearch, getTaskSort } from '@/entities/Task/model/selectors/taskByUser';
 import {taskActions} from "@/entities/Task/model/slice/TestSlice";
 import {getUserAuthData} from "@/entities/User";
 import {Text} from "@/shared/ui/component/Text";
-import {useNavigate, useParams} from "react-router-dom";
+
 
 
 
@@ -25,6 +25,7 @@ export const Sidebar = memo(({className}: SidebarProps) => {
     const sort = useSelector(getTaskSort);
     const search = useSelector(getTaskSearch);
     const currentUser=useSelector(getUserAuthData)
+
     const dispatch = useAppDispatch();
 
 
@@ -60,8 +61,8 @@ direction="column">
                             <Text title="Create new task"/>
                             <Button
                                 fullWidth
-                                color={'success'}
-                                variant={'filled'}
+                                color="success"
+                                variant="filled"
                                 onClick={() => dispatch(modalActions.onShowModal())}
                             >
                                 Create
